@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.7'
 # Security settings
 gem "activesupport", '>= 6.0.3.1'
 gem "activestorage", '>= 6.0.3.1'
-gem "activesupport", '>= 6.0.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -53,6 +52,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # Minitest
+  gem 'minitest', '>= 5.14.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
