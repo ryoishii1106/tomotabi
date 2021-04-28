@@ -15,7 +15,12 @@ services:
     command: rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/app_name
+      - bundle_path:/bundle
     ports:
       - "3000:3000"
     links:
       - db
+    environment:
+      - BUNDLE_PATH=/bundle
+volumes:
+    bundle_path:
