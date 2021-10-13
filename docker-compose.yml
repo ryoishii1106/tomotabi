@@ -1,7 +1,8 @@
 version: "3"
 services:
   db:
-    image: ryoishii/mysql:8.0
+    image: mysql:8.0
+    # image: ryoishii/mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
@@ -11,7 +12,7 @@ services:
       - ./mysql-confd:/etc/mysql/conf.d
 
   web:
-    image: ryoishii/tomotabi_web:latest
+    # image: ryoishii/tomotabi_web:latest
     build: .
     command: /bin/sh -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
     volumes:
