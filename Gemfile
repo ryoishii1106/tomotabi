@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.11'
 gem 'activeadmin'
 # Use Slim for template engine
 gem 'slim-rails'
+# Convert html and erb to slim
 gem 'html2slim'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
