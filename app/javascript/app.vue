@@ -9,7 +9,7 @@
           <th>accepted</th>
           <th>name</th>
           <th>self_introduction</th>
-          <th>avator</th>
+          <th>avatar</th>
           <th>current_sign_in_at</th>
           <th>deleted_at</th>
           <th>created_at</th>
@@ -22,7 +22,7 @@
           <td>{{ user.accepted }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.self_introduction }}</td>
-          <td>{{ user.avator }}</td>
+          <td>{{ user.avatar }}</td>
           <td>{{ user.current_sign_in_at }}</td>
           <td>{{ user.deleted_at }}</td>
           <td>{{ user.created_at }}</td>
