@@ -10,11 +10,13 @@ import VueRouter from 'vue-router'
 
 import UserIndexPage from 'UserIndexPage.vue'
 import UserDetailPage from 'UserDetailPage.vue'
+import UserNewPage from 'UserNewPage.vue'
 
 const router = new VueRouter({
   routes: [
     { path: '/', component: UserIndexPage },
-    { path: '/users/:id(\\d+)', name: 'UserDetailPage', component: UserDetailPage }
+    { path: '/users/:id(\\d+)', name: 'UserDetailPage', component: UserDetailPage },
+    { path: '/users/new', name: 'UserNewPage', component: UserNewPage }
   ]
 })
 

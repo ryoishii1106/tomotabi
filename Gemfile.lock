@@ -156,6 +156,15 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-alias (0.0.1)
+      binding_of_caller
+      pry
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (~> 0.13.0)
     public_suffix (4.0.6)
     puma (5.5.1)
       nio4r (~> 2.0)
@@ -304,6 +313,8 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.7)
   minitest (>= 5.14.1)
   mysql2 (>= 0.4.4)
+  pry-alias
+  pry-byebug
   puma (~> 5.5)
   rails (~> 6.1.4)
   rspec-rails
