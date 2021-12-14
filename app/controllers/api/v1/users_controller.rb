@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApiController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: %i[show update]
 
   rescue_from Exception, with: :render_status500
   rescue_from ActiveRecord::RecordNotFound, with: :render_status404
@@ -19,6 +19,14 @@ class Api::V1::UsersController < ApiController
       render json: user, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      head :no_content
+    else
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

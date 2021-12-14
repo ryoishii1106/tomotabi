@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createUser">
+  <form @submit.prevent="$emit('submit')">
     <div v-if="errors.length != 0">
       <ul v-for="e in errors" :key="e">
         <li><font color="red">{{ e }}</font></li>

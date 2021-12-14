@@ -1,5 +1,5 @@
 <template>
-  <user-form-page :errors="errors" :user="user" @submit="createUser"></user-form-page>
+  <user-form-page :errors="errors" :user="user" @submit="updateUser"></user-form-page>
 </template>
 
 <script>
@@ -10,26 +10,23 @@ export default {
   components: {
     UserFormPage
   },
-  data: function () {
+  data() {
     return {
-      user: {
-        email: '',
-        password: '',
-        accepted: false,
-        name: '',
-        self_introduction: '',
-        avatar: ''
-      },
+      user: {},
       errors: ''
     }
   },
+  mounted () {
+    axios
+      .get(`/api/v1/users/${this.$route.params.id}.json`)
+      .then(response => (this.user = response.data))
+  },
   methods: {
-    createUser: function() {
+    updateUser: function() {
       axios
-        .post('/api/v1/users', this.user)
+        .patch(`/api/v1/users/${this.user.id}`, this.user)
         .then(response => {
-          let e = response.data;
-          this.$router.push({ name: 'UserDetailPage', params: { id: e.id } });
+          this.$router.push({ name: 'UserDetailPage', params: { id: this.user.id } });
         })
         .catch(error => {
           console.error(error);
