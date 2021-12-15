@@ -23,7 +23,5 @@ services:
       - db
     environment:
       - BUNDLE_PATH=/bundle
-  # webpacker:
-  #   command: /bin/webpack-dev-server
 volumes:
   bundle_path:
