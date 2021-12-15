@@ -23,7 +23,17 @@ services:
       - db
     environment:
       - BUNDLE_PATH=/bundle
-  # webpacker:
-  #   command: /bin/webpack-dev-server
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+  webpacker:
+    build: .
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/webpacker-example-app
+    ports:
+      - '3035:3035'
 volumes:
   bundle_path:
