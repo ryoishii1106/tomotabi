@@ -9,6 +9,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
+      - mysql_data:/var/lib/mysql
       - ./mysql-confd:/etc/mysql/conf.d
   web:
     # image: ryoishii/tomotabi_web:latest
@@ -36,4 +37,7 @@ services:
     ports:
       - '3035:3035'
 volumes:
+  mysql_data:
+    driver: local
   bundle_path:
+    driver: local
