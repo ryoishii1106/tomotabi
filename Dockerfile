@@ -3,9 +3,10 @@ FROM ruby:2.7.1
 
 # 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 RUN apt-get update -qq && \
-    apt-get install -y build-essential \ 
-    libpq-dev \        
-    nodejs
+    apt-get install -y build-essential \
+    libpq-dev \
+    nodejs \
+    npm
 
 # npmのインストール
 COPY package*.json ./
@@ -28,5 +29,6 @@ ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 # Gemfileのbundle install
+# 毎回docker-compose run web bundle installが必要だが、こちらでカバーできない？
 RUN bundle install
 ADD . $APP_ROOT

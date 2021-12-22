@@ -2,7 +2,7 @@ version: "3"
 services:
   db:
     image: mysql:8.0
-    # image: ryoishii/mysql:8.0
+    # image: ryoishii/mysql:8.0　→docker hubを利用するためimage名を指定したいが、エラー発生
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
@@ -12,7 +12,7 @@ services:
       - mysql_data:/var/lib/mysql
       - ./mysql-confd:/etc/mysql/conf.d
   web:
-    # image: ryoishii/tomotabi_web:latest
+    # image: ryoishii/tomotabi_web:latest　→docker hubを利用するためimage名を指定したいが、エラー発生
     build: .
     command: /bin/sh -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -24,18 +24,20 @@ services:
       - db
     environment:
       - BUNDLE_PATH=/bundle
-      - WEBPACKER_DEV_SERVER_HOST=webpacker
-  webpacker:
-    build: .
-    environment:
-      - NODE_ENV=development
-      - RAILS_ENV=development
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-    command: ./bin/webpack-dev-server
-    volumes:
-      - .:/webpacker-example-app
-    ports:
-      - '3035:3035'
+      # - WEBPACKER_DEV_SERVER_HOST=webpacker
+  # webpackerが遅い問題を改善したいが、packs配下のjsファイルが読み込まれない。（net::ERR_ABORTED 404 (Not Found)）
+  # https://qiita.com/MoguraStore/items/ca80c99c5542898ec3b5
+  # webpacker:
+  #   build: .
+  #   environment:
+  #     - NODE_ENV=development
+  #     - RAILS_ENV=development
+  #     - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+  #   command: ./bin/webpack-dev-server
+  #   volumes:
+  #     - .:/webpacker-example-app
+  #   ports:
+  #     - '3035:3035'
 volumes:
   mysql_data:
     driver: local
