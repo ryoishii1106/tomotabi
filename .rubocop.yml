@@ -4,5 +4,3 @@ Style/Documentation:
   Enabled: false
 MethodLength:
   Max: 20
-ClassAndModuleChildren:
-  EnforcedStyle: compact
