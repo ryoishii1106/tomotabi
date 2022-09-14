@@ -75,3 +75,4 @@ end
 gem 'tzinfo-data'
 
 gem 'rails-i18n'
+gem 'bootstrap'

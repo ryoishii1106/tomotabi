@@ -7,5 +7,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = yield
+  body#vue-app 
+      div class="alert alert-primary" role="alert"
+        | bootstrapのサンプル！
+      = yield
