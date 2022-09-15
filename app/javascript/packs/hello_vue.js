@@ -7,16 +7,32 @@
 
 import Vue from 'vue'
 import App from '../app.vue'
+import MainHeader from '../MainHeader.vue'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
-  const app = new Vue({
-    el,
-    render: h => h(App)
-  })
+export default {
+  el: "#vue-app",
+  components: {
+    Vue,
+    App,
+    MainHeader
+    // 'main-header': MainHeader →変化なし
+  }
+  // data: function () {
+  //   return {
+  //     message: "Hello Vue!"
+  //   }
+  // }
+}
 
-  console.log(app)
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   const el = document.body.appendChild(document.createElement('hello'))
+//   const app = new Vue({
+//     el,
+//     render: h => h(App)
+//   })
+
+//   console.log(app)
+// })
 
 
 // The above code uses Vue without the compiler, which means you cannot
