@@ -8,6 +8,22 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+console.log('hello kazuma');
+
+import Vue from "vue/dist/vue.esm.js";
+import MainHeader from '../MainHeader.vue';
+
+console.log('hello kazuma2');
+
+export default new Vue({
+  el: "#vue-app",
+  components: {
+    MainHeader
+  }
+});
+
+console.log('hello kazuma3');
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
