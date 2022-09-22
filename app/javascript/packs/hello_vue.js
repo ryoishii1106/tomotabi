@@ -7,15 +7,12 @@
 
 import Vue from 'vue'
 import App from '../app.vue'
-import MainHeader from '../MainHeader.vue'
 
 export default {
   el: "#vue-app",
   components: {
     Vue,
     App,
-    MainHeader
-    // 'main-header': MainHeader →変化なし
   }
   // data: function () {
   //   return {
