@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
     ports:
-      - "3306:3306"
+      - '3306:3306'
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mysql-confd:/etc/mysql/conf.d
@@ -24,20 +24,22 @@ services:
       - db
     environment:
       - BUNDLE_PATH=/bundle
-      # - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - WEBPACKER_DEV_SERVER_PORT=3037
   # webpackerが遅い問題を改善したいが、packs配下のjsファイルが読み込まれない。（net::ERR_ABORTED 404 (Not Found)）
   # https://qiita.com/MoguraStore/items/ca80c99c5542898ec3b5
-  # webpacker:
-  #   build: .
-  #   environment:
-  #     - NODE_ENV=development
-  #     - RAILS_ENV=development
-  #     - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-  #   command: ./bin/webpack-dev-server
-  #   volumes:
-  #     - .:/webpacker-example-app
-  #   ports:
-  #     - '3035:3035'
+  webpacker:
+    build: .
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - WEBPACKER_DEV_SERVER_PORT=3037
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/webpacker-example-app
+    ports:
+      - '3037:3037'
 volumes:
   mysql_data:
     driver: local
